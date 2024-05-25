@@ -1,0 +1,8 @@
+testaction,name,lower_limit,upper_limit,code,description,unit
+TestAction1,par1,0,100,ABC,abc_description,meters
+TestAction1,par2,0,100,ABCD,abcdfs_description,meters
+TestAction1,par3,0,100,ABCE,abcdf_description,meters
+TestAction2,par4,0,100,ABCF,abcdfs_description,meters
+TestAction2,par5,0,100,ABCG,abcfdf_description,meters
+TestAction2,par6,0,100,ABCH,abcdfds_description,meters
+TestAction2,par7,0,100,XYZ,xyz_description,meters

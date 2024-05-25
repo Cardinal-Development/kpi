@@ -1,0 +1,10 @@
+{
+    "adb_path": "C:\\android\\platform-tools-latest-windows\\platform-tools",
+    "VrsTool_path": "D:\\sw\\vrstool_to_csv",
+    "Tracker_path": "C:\\vrpn",
+    "chico_CmdPath": "D:\\Chico_package",
+    "Chico_config_path": "D:\\chico_config\\config_files\\PW_BS_30secs_9N_LED.json",
+    "root_job_name":"11_BS_05_6A_ALIGNMENT",
+    "output_dir": "D:\\chico_result_log",
+    "track_file_size": 8
+}

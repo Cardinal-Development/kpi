@@ -1,0 +1,48 @@
+sn_read:
+  - "adb devices"
+root:
+  - "adb root"
+remount:
+  - "adb remount"
+print_delete:
+  - "adb shell find /data -name '*.ovp' -or -name '*.vrs' -print -delete"
+df_data:
+  - "adb shell df -h /data"
+raw_image_mode:
+  - "adb shell setprop persist.vendor.ovr.camera.raw_image_mode 0"
+enable_3a:
+  - "adb shell setprop persist.vendor.camera.rgb.enable_3a false"
+output_yuv:
+  - "adb shell setprop persist.vendor.camera.teton.output_yuv false"
+ovr_rgbocal:
+  - "adb shell setprop persist.ovr.tracking.rgbocal false"
+grid_line_frequency:
+  - "adb shell oculuspreferences --set electric_grid_line_frequency 60"
+factory_tool:
+  - "adb shell syncboss_ht_factory_tool S -w 1"
+guardian_disable:
+  - "adb shell setprop persist.oculus.guardian_disable 1"
+ovr_cmmv2:
+  - "adb shell setprop persist.vendor.ovr.camera.cmmv2 1"
+consumers_ctl_restart:
+  - "adb shell syncboss_consumers_ctl restart"
+sleep_5:
+  - "adb shell sleep 5"
+unsupported_services:
+  - "adb shell echo Stopping unsupported services"
+mrsystemservice:
+  - "adb shell stop mrsystemservice"
+trackingfidelityservice:
+  - "adb shell stop trackingfidelityservice"
+wifi_disable:
+  - "adb shell svc wifi disable"
+prox_close:
+  - "adb shell am broadcast -a com.oculus.vrpowermanager.prox_close"
+adb_vrs-recorder:
+  - 'adb shell vrs-recorder --duration 385 --cmm_recorded_purposes  worldTracking/iot --slam_dynamic_exposure --cmm_allowed_mux_modes=worldTracking/lowLightHandsFlood --log_stdout --warmup 1000 --output=/data/misc/tracking/rec.vrs --debug"'
+adb_pull_vrs:
+  - "adb pull /data/misc/tracking/rec.vrs [local_vrs_path]"
+
+
+
+

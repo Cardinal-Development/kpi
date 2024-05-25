@@ -1,0 +1,9 @@
+{
+  "station_type_id": "E001",
+  "station_type_name": "Example Station",
+  "location_id": "DEMO",
+  "line_id": "DEMO-LINE4",
+  "station_id": "dm-example-01",
+  "station_instance": "1",
+  "build_phase": "EVT1",
+  "assembly_phase": "DEMO"}
