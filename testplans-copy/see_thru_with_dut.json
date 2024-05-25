@@ -1,0 +1,132 @@
+{
+    "name": "TestPlanControlFlow",
+    "configuration": {
+        "setting": 1,
+        "another_setting": 2,
+        "stop_policy":"DontStop"
+    },
+    "actions": [
+        {
+            "name": "start_test",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.start_test"
+        },
+        {
+            "name": "Robot initial",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.Robot_initial"
+        },
+        {
+            "name": "close light ",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.do",
+            "do_name": "light",
+            "value": false
+        },
+        {
+            "name": "dut_server_initial",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.dut_close"
+        },
+        {
+            "name": "tool_server_initial",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.tool_close"
+        },
+        {
+            "name": "Turn on SLAM targets",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.light",
+            "channel": ["channel1","channel2","channel3"],
+            "value": [200,200,200]
+        },
+        {
+            "name": "zaber_home",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.zaber_home"
+        },
+        {
+            "name": "door_close",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.door_close",
+            "check_time": 15
+        },
+
+        {
+            "name": "tool_camera_initial",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.tool_initial"
+        },
+        {
+            "name": "get tool camera sn ",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.tool_camera_sn",
+            "tool_camera_name": ["docl","docr","wocl","wocr"]
+        },
+        {
+            "name": "get dut sn ",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.dut_sn"
+        },
+        {
+            "name": "Robot call job",
+            "external_type": true,
+            "skip": true,
+            "type": "see_thru.testactions.function.Robot_call_job",
+            "job_name": "LOAD_TO_HOME"
+        },
+        {
+            "name": "dut_initial",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.dut_initial"
+        },
+        {
+            "name": "see_thru_with_dut",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.group_test_with_dut",
+            "robot_group_name": "series_02",
+            "zaber_group_name": "series_01",
+            "tool_camera_name": ["docl","docr","wocl","wocr"],
+            "camera_name": ["slf", "sls", "srf", "srs"]
+        },
+        {
+            "name": "dut_close",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.dut_close"
+        },
+         {
+            "name": "tool_close",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.tool_close"
+        },
+        {
+            "name": "Turn Off SLAM targets",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.light",
+            "channel": ["channel1","channel2","channel3"],
+            "value": [0,0,0]
+        },
+        {
+            "name": "end_test",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.end_test"
+        }
+    ]
+}

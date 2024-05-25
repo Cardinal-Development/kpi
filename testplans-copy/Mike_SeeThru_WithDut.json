@@ -1,0 +1,187 @@
+{
+    "name": "TestPlanControlFlow",
+    "configuration": {
+        "setting": 1,
+        "another_setting": 2,
+        "stop_policy":"StopOnFail"
+    },
+    "actions":[
+        {
+            "name": "TestActionStartTest",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.TestActionStartTest"
+        },
+        {
+            "name": "TestActionInitializeDUT",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.TestActionInitializeDUT"
+        },
+        {
+            "name": "TestActionInitializeTriloco",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.TestActionInitializeTriloco"
+        },
+        {
+            "name": "TestActionInitializeCameras",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.TestActionInitializeCameras"
+        },
+        {
+            "name": "TestActionSetCameraParameters",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.TestActionSetCameraParameters",
+            "camera_name": ["slf", "sls", "srf", "srs"]
+        },
+        {
+            "name": "TestActionCloseAutoDoor",
+            "skip": false,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionCloseAutoDoor",
+            "timeout":15
+        },
+        {
+            "name": "TestActionRobotServoControl",
+            "skip": false,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionRobotServoControl",
+            "value":"On",
+            "job_timeout":65
+        },
+        {
+            "name": "TestActionRobotCallJob",
+            "skip": false,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionRobotCallJob",
+            "job_name":"LOAD_TO_HOME",
+            "job_timeout":30
+        },
+        {
+            "name": "TestActionSetLights",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.TestActionSetLights",
+            "channel": ["channel1","channel2","channel3"],
+            "value": [200,200,200],
+            "station_light": "False"
+        },
+        {
+            "name": "TestActionStartDUTRecord",
+            "skip": false,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionStartDUTRecord",
+            "timeout":5,
+            //Michael
+        },
+        {
+            "name": "TestActionStartExtCamRecord",
+            "skip": false,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionStartExtCamRecord",
+            "timeout":5,
+            //Michael
+        },        
+        {
+            "name": "TestActionRobotCallJob",
+            "skip": false,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionRobotCallJob",
+            "job_name":"SEE_THRU_JOB1",
+            "job_timeout":65
+        },
+        {
+            "name": "TestActionStopExtCamRecord",
+            "skip": false,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionStopExtCamRecord",
+            "timeout":5,
+            //Michael
+        }, 
+        {
+            "name": "TestActionDisplayCal",
+            "skip": false,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionDisplayCal",
+
+        }, 
+        {
+            "name": "TestActionCheckData",
+            "skip": true,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionCheckData",
+            //Michael
+        },
+        {
+            "name": "TestActionProcessData",
+            "skip": true,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionProcessData",
+            //Brett
+        },
+        {
+            "name": "TestActionDataUploadVRS",
+            "skip": true,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionDataUploadVRS",
+            //copy ET, Brett will modify later
+        },
+        {
+            "name": "TestActionTrilocoMove",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.TestActionTrilocoMove",
+            "stages": ["x_axis_left", "x_axis_right", "y_axis", "z_axis"],
+            "value": [10,20,-10,0]
+        },
+        {
+            "name": "TestActionCloseCameraServer",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.TestActionCloseCameraServer",
+            "timeout":5
+        },
+        {
+            "name": "TestActionRobotCallJob",
+            "skip": false,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionRobotCallJob",
+            "job_name":"HOME_TO_LOAD",
+            "job_timeout":65
+        },
+        {
+            "name": "TestActionSetLights",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.TestActionSetLights",
+            "channel": ["channel1","channel2","channel3"],
+            "value": [0,0,0],
+            "station_light": "True"
+        },
+        {
+            "name": "TestActionRobotServoControl",
+            "skip": false,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionRobotServoControl",
+            "value":"Off",
+            "job_timeout":10
+        },
+        {
+            "name": "TestActionOpenAutoDoor",
+            "skip": false,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionOpenAutoDoor",
+            "timeout":15
+        },
+        {
+            "name": "TestActionFinishTest",
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionFinishTest",
+            "stop_policy": "ExecuteLast",
+            //We do not do anything here
+        }
+    ]
+}

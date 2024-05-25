@@ -1,0 +1,40 @@
+{
+    "name": "TestPlanControlFlow",
+    "configuration": {
+        "setting": 1,
+        "another_setting": 2,
+        "stop_policy":"StopOnFail"
+    },
+    "actions": [
+        {
+            "name": "Robot initial",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.Robot_initial"
+        },
+        {
+            "name": "Robot move c_001",
+            "external_type": true,
+            "skip": true,
+            "type": "see_thru.testactions.function.Robot_Move_Joint",
+            "group_name": "series_01",
+            "pos_name": "c_001"
+        },
+        {
+            "name": "Robot move c_002",
+            "external_type": true,
+            "skip": true,
+            "type": "see_thru.testactions.function.Robot_Move_Joint",
+            "group_name": "series_01",
+            "pos_name": "c_002"
+        },
+        {
+            "name": "Robot move c_003",
+            "external_type": true,
+            "skip": true,
+            "type": "see_thru.testactions.function.Robot_Move_Joint",
+            "group_name": "series_01",
+            "pos_name": "c_003"
+        }
+    ]
+}

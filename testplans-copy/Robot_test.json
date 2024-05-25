@@ -1,0 +1,40 @@
+{
+    "name": "TestPlanControlFlow",
+    "configuration": {
+        "setting": 1,
+        "another_setting": 2,
+        "stop_policy":"StopOnFail"
+    },
+    "actions":[
+        {
+            "name": "RobotServoOn",
+            "external_type": true,
+            "skip": false,
+            "value": "on",
+            "type": "see_thru.testactions.function.TestActionRobotServoControl"
+        },
+        {
+            "name": "TestActionRobotCallJob1",
+            "skip": false,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionRobotCallJob",
+            "job_name": "LOAD_TO_HOME",
+            "timeout":10
+        },
+        {
+            "name": "TestActionRobotCallJob2",
+            "skip": false,
+            "external_type": true,
+            "type": "see_thru.testactions.function.TestActionRobotCallJob",
+            "job_name": "HOME_TO_LOAD",
+            "timeout":10
+        },
+        {
+            "name": "RobotServoOff",
+            "external_type": true,
+            "skip": false,
+            "value": "off",
+            "type": "see_thru.testactions.function.TestActionRobotServoControl"
+        }
+    ]
+}

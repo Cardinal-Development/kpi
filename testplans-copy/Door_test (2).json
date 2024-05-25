@@ -1,0 +1,25 @@
+
+{
+    "name": "TestPlanControlFlow",
+    "configuration": {
+        "setting": 1,
+        "another_setting": 2,
+        "stop_policy":"StopOnFail"
+    },
+    "actions":[
+        {
+            "name": "door_close",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.TestActionCloseAutoDoor",
+            "check_time": 15
+        },
+        {
+            "name": "door_open",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.TestActionOpenAutoDoor",
+            "check_time": 15
+        }
+    ]
+}

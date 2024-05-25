@@ -1,0 +1,113 @@
+{
+  "name": "practice",
+  "configuration": {
+    "setting": 1,
+    "another_setting": 2,
+    "stop_policy": "StopOnFail"
+  },
+  "actions":
+          [
+            {
+              "name": "robot_connect",
+              "skip": false,
+              "external_type": true,
+              "type": "kpi.testactions.function.robot_alarm"
+            },
+            {
+              "name": "TestActionRobot_start_testing",
+              "skip": false,
+              "external_type": true,
+              "type": "kpi.testactions.function.TestActionStartTest"
+            },
+            {
+              "name": "RobotServoControlON",
+              "skip": false,
+              "external_type": true,
+              "value": "on",
+              "type": "kpi.testactions.function.TestActionRobotServoControl"
+            },
+            {
+              "name": "TestAction_display1",
+              "external_type": true,
+              "skip": false,
+              "message": "please input test_id",
+              "timeout": 30,
+              "type": "kpi.testactions.function.TestInformationDisplay"
+            },
+            {
+              "name": "TestActionRobot_CallJob_HOME",
+              "skip": false,
+              "external_type": true,
+              "job_name":"HEAD_HOME",
+              "job_timeout":30,
+              "type": "kpi.testactions.function.TestActionRobotCallJob"
+            },
+            {
+              "name": "TestActionRobot_readSn_dut",
+              "skip": false,
+              "external_type": true,
+              "type": "kpi.testactions.function.TestActionInitializeADB_DUT"
+            },
+            {
+              "name": "call_chico_prepare_device",
+              "skip": false,
+              "external_type": true,
+              "timeout": 80,
+              "type": "kpi.testactions.function.TestActionCallChicoPrepare"
+            },
+            {
+              "name": "invokingChico",
+              "skip": false,
+              "external_type": true,
+              "timeout": 3000,
+              "type": "kpi.testactions.function.TestActionInvokingChico"
+            },
+            {
+              "name": "wait_chico_record",
+              "skip": false,
+              "external_type": true,
+              "wait_timeout":300,
+              "type": "kpi.testactions.function.TestActionWaitChicoRecord"
+            },
+            {
+              "name": "ChicoRootCallJob",
+              "skip": false,
+              "external_type": true,
+              "job_name":"11_PW_03_6A_ALIGNMENT",
+              "job_timeout":3000,
+              "type": "kpi.testactions.function.TestActionRobotChicoCallJob"
+            },
+            {
+              "name": "JudgingTestResult",
+              "skip": false,
+              "external_type": true,
+              "timeout":2000,
+              "type": "kpi.testactions.function.TestActionJudgingTestResult"
+            },
+            {
+              "name": "TestActionRobot_test_end_CallJob",
+              "skip": false,
+              "external_type": true,
+              "job_name":"HEAD_HOME",
+              "job_timeout":30,
+              "stop_policy": "ExecuteLast",
+              "type": "kpi.testactions.function.TestActionRobotCallJob"
+            },
+            {
+              "name": "RobotServoControlOFF",
+              "skip": false,
+              "external_type": true,
+              "value": "off",
+              "stop_policy": "ExecuteLast",
+              "type": "kpi.testactions.function.TestActionRobotServoControl"
+            },
+            {
+              "name": "TestActionFinishTest",
+              "skip": false,
+              "external_type": true,
+              "stop_policy": "ExecuteLast",
+              "type": "kpi.testactions.function.TestActionFinishTest_KPI"
+            }
+          ]
+
+}

@@ -1,0 +1,32 @@
+{
+    "name": "TestPlanControlFlow",
+    "configuration": {
+        "setting": 1,
+        "another_setting": 2,
+        "stop_policy":"StopOnFail"
+    },
+    "actions":[
+        {
+            "name": "TestActionInitializeTriloco",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.TestActionInitializeTriloco"
+        }, 
+        {
+            "name": "TestActionTrilocoMove1",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.TestActionTrilocoMove",
+            "stages": ["z_axis"],
+            "value": [1000]
+        },
+        {
+            "name": "TestActionTrilocoMove2",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.TestActionTrilocoMove",
+            "stages": ["x_axis_left", "x_axis_right", "y_axis", "z_axis"],
+            "value": [0,0,0,3000]
+        }
+    ]
+}

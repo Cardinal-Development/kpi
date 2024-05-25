@@ -1,0 +1,25 @@
+{
+    "name": "TestPlanControlFlow",
+    "configuration": {
+        "setting": 1,
+        "another_setting": 2,
+        "stop_policy":"StopOnFail"
+    },
+    "actions": [
+
+        {
+            "name": "zaber_home",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.zaber_home"
+        },
+        {
+            "name": "zaber_motion",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.zaber_control",
+            "group_name": "series_01",
+            "pos_name": "c_002"
+        }
+    ]
+}

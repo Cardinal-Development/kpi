@@ -1,0 +1,53 @@
+{
+    "name": "TestPlanControlFlow",
+    "configuration": {
+        "setting": 1,
+        "another_setting": 2,
+        "stop_policy":"DontStop"
+    },
+    "actions": [
+        {
+            "name": "Robot initial",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.Robot_initial"
+        },
+        {
+            "name": "close light ",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.do",
+            "do_name": "light",
+            "value": false
+        },
+        {
+            "name": "light01",
+            "external_type": true,
+            "skip": true,
+            "type": "see_thru.testactions.function.light",
+            "channel": "channel1",
+            "value": 200
+        },
+        {
+            "name": "door_close",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.door_close",
+            "check_time": 15
+        },
+        {
+            "name": "light",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.light",
+            "channel": ["channel1"],
+            "value": [200]
+        },
+        {
+            "name": "end_test",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.end_test"
+        }
+    ]
+}

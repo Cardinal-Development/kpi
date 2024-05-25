@@ -1,0 +1,160 @@
+{
+    "name": "see thru without dut",
+    "configuration": {
+        "setting": 1,
+        "another_setting": 2,
+        "stop_policy":"DontStop"
+    },
+    "actions": [
+
+        {
+            "name": "robot connect",
+            "type": "cardinal.testactions.testactionif.TestActionIf",
+            "condition": {
+                "name": "check robot alarm",
+                "external_type": true,
+                "type": "see_thru.testactions.function.robot_alarm"
+            },
+            "then": [
+                        {
+                            "name": "start_test",
+                            "external_type": true,
+                            "skip": false,
+                            "type": "see_thru.testactions.function.start_test"
+                        },
+                        {
+                            "name": "Robot initial",
+                            "external_type": true,
+                            "skip": false,
+                            "type": "see_thru.testactions.function.Robot_initial"
+                        },
+                        {
+                            "name": "close light ",
+                            "external_type": true,
+                            "skip": false,
+                            "type": "see_thru.testactions.function.do",
+                            "do_name": "light",
+                            "value": false
+                        },
+                        {
+                            "name": "dut_server_initial",
+                            "external_type": true,
+                            "skip": false,
+                            "type": "see_thru.testactions.function.dut_close"
+                        },
+                        {
+                            "name": "tool_server_initial",
+                            "external_type": true,
+                            "skip": false,
+                            "type": "see_thru.testactions.function.tool_close"
+                        },
+                        {
+                            "name": "Turn on SLAM targets",
+                            "external_type": true,
+                            "skip": false,
+                            "type": "see_thru.testactions.function.light",
+                            "channel": ["channel1","channel2","channel3"],
+                            "value": [200,200,200]
+                        },
+                        {
+                            "name": "door_close",
+                            "external_type": true,
+                            "skip": false,
+                            "type": "see_thru.testactions.function.door_close",
+                            "check_time": 15
+                        },
+                        {
+                            "name": "zaber_home",
+                            "external_type": true,
+                            "skip": false,
+                            "type": "see_thru.testactions.function.zaber_home"
+                        },
+                        {
+                            "name": "tool_camera_initial",
+                            "external_type": true,
+                            "skip": false,
+                            "type": "see_thru.testactions.function.tool_initial"
+                        },
+                        {
+                            "name": "tool camera",
+                            "type": "cardinal.testactions.testactionif.TestActionIf",
+                            "condition": {
+                                "name": "get tool camera sn",
+                                "external_type": true,
+                                "type": "see_thru.testactions.function.tool_camera_and_dut",
+                                "tool_camera_name": ["docl","docr","wocl","wocr"]
+                            },
+                            "then":
+                                [
+                                    {
+                                        "name": "Robot call job",
+                                        "external_type": true,
+                                        "skip": true,
+                                        "type": "see_thru.testactions.function.Robot_call_job",
+                                        "job_name": "LOAD_TO_HOME"
+                                    },
+                                    {
+                                        "name": "dut_initial",
+                                        "external_type": true,
+                                        "skip": false,
+                                        "type": "see_thru.testactions.function.dut_initial"
+                                    },
+                                    {
+                                        "name": "see_thru_without_dut",
+                                        "external_type": true,
+                                        "skip": false,
+                                        "type": "see_thru.testactions.function.group_test_without_dut",
+                                        "robot_group_name": "series_01",
+                                        "zaber_group_name": "series_01",
+                                        "tool_camera_name": ["docl","docr","wocl","wocr"]
+                                    },
+                                    {
+                                        "name": "dut_close",
+                                        "external_type": true,
+                                        "skip": false,
+                                        "type": "see_thru.testactions.function.dut_close"
+                                    }
+                                ],
+                            "else":
+                                    [
+                                        {
+                                            "name": "tool camera or dut xavier error",
+                                            "external_type": true,
+                                            "skip": false,
+                                            "type": "see_thru.testactions.function.TAExceptionFail"
+                                         }
+
+                                    ]
+                        },
+                        {
+                            "name": "tool_close",
+                            "external_type": true,
+                            "skip": false,
+                            "type": "see_thru.testactions.function.tool_close"
+                        },
+                        {
+                            "name": "Turn Off SLAM targets",
+                            "external_type": true,
+                            "skip": false,
+                            "type": "see_thru.testactions.function.light",
+                            "channel": ["channel1","channel2","channel3"],
+                            "value": [0,0,0]
+                        },
+                        {
+                            "name": "end_test",
+                            "external_type": true,
+                            "skip": false,
+                            "type": "see_thru.testactions.function.end_test"
+                        }
+                        ],
+            "else": [
+                {
+                "name": "robot state is error",
+                "external_type": true,
+                "skip": false,
+                "type": "see_thru.testactions.function.TAExceptionFail"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "name": "nested control flow",
+    "description": "Example with nested control flow test actions (if inside a loop)",
+    "actions": [
+        {
+            "name": "this is a loop",
+            "type": "kpi.testactions.testactionloop.TestActionLoop",
+            "times": 3,
+            "do": [
+                {
+                    "name": "this is an if",
+                    "type": "cardinal.testactions.testactionif.TestActionIf",
+                    "condition": {
+                        "name": "this is the condition",
+                        "external_type": true,
+                        "type": "Example.testactions.testactions_mock.TAPass"
+                    },
+                    "then": [
+                        {
+                            "name": "add_parametric_result",
+                            "external_type": true,
+                            "type": "Example.testactions.testactions_mock.TAAddParametricResultInsideLoop",
+                            "value": 42
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

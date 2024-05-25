@@ -1,0 +1,17 @@
+
+{
+    "name": "TestPlanControlFlow",
+    "configuration": {
+        "setting": 1,
+        "another_setting": 2,
+        "stop_policy":"StopOnFail"
+    },
+    "actions":[
+        {
+            "name": "DUT_Initialization",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.TestActionInitializeDUT"
+        }
+    ]
+}

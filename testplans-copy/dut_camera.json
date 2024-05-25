@@ -1,0 +1,56 @@
+{
+    "name": "TestPlanControlFlow",
+    "configuration": {
+        "setting": 1,
+        "another_setting": 2,
+        "stop_policy":"DontStop"
+    },
+    "actions": [
+        {
+            "name": "camera_initial",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.camera_initial"
+        },
+        {
+            "name": "tool_initial",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.camera_initial"
+        },
+        {
+            "name": "get camera sn ",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.camera_sn",
+            "camera_name": ["docl","docr","wocl","wocr"]
+        },
+        {
+            "name": "capture image 01",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.snap",
+            "group_name": "see_thru",
+            "camera_name": ["docl","docr","wocl","wocr"],
+            "image_name": "0001"
+        },
+        {
+            "name": "capture image 02",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.snap",
+            "group_name": "see_thru",
+            "camera_name": ["docl","docr","wocl","wocr"],
+            "image_name": "0002"
+        },
+        {
+            "name": "capture image 03",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.snap",
+            "group_name": "see_thru",
+            "camera_name": ["docl","docr","wocl","wocr"],
+            "image_name": "0003"
+        }
+    ]
+}

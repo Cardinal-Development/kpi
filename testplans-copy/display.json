@@ -1,0 +1,116 @@
+{
+    "name": "TestPlanControlFlow",
+    "configuration": {
+        "setting": 1,
+        "another_setting": 2,
+        "stop_policy":"DontStop"
+    },
+    "actions": [
+        {
+            "name": "start_test",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.start_test"
+        },
+        {
+            "name": "Robot initial",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.Robot_initial"
+        },
+        {
+            "name": "close light ",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.do",
+            "do_name": "light",
+            "value": false
+        },
+        {
+            "name": "dut_server_initial",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.dut_close"
+        },
+        {
+            "name": "tool_server_initial",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.tool_close"
+        },
+        {
+            "name": "Turn off SLAM targets",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.light",
+            "channel": ["channel1","channel2","channel3"],
+            "value": [0,0,0]
+        },
+        {
+            "name": "zaber_home",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.zaber_home"
+        },
+        {
+            "name": "tool_camera_initial",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.tool_initial"
+        },
+        {
+            "name": "door_close",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.door_close",
+            "check_time": 15
+        },
+        {
+            "name": "get tool camera sn ",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.tool_camera_sn",
+            "tool_camera_name": ["docl","docr","wocl","wocr"]
+        },
+        {
+            "name": "get dut sn ",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.dut_sn"
+        },
+        {
+            "name": "Robot call job",
+            "external_type": true,
+            "skip": true,
+            "type": "see_thru.testactions.function.Robot_call_job",
+            "job_name": "LOAD_TO_HOME"
+        },
+        {
+            "name": "group_test_display",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.group_test_display",
+            "color_group": ["red","blue","green"],
+            "zaber_group_name": "series_01",
+            "tool_camera_name": ["docl","docr"],
+            "load_images": ["calibu_17X13_1856mmX1472mm_4453718387",
+                            "checkerboard-1856pxX1472px-32X32-sid11000",
+                            "checkerboard-1856pxX1472px-32X32-sid12000-offset16x16",
+                            "checkerboard-1856pxX1472px-64X64-sid10000",
+                            "flatfield"],
+            "exposure_time": [1000]
+        },
+        {
+            "name": "tool_close",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.tool_close"
+        },
+        {
+            "name": "end_test",
+            "external_type": true,
+            "skip": false,
+            "type": "see_thru.testactions.function.end_test"
+        }
+    ]
+}
